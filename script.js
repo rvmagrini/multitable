@@ -18,6 +18,7 @@ document.getElementById("generate").addEventListener("click", function () {
       for (let i = 1; i <= 10; i++) {
         let newOpt = document.createElement("option");
         newOpt.text = `${number} x ${i} = ${number * i}`;
+        newOpt.value = `mtab${i}`;
         selTable.appendChild(newOpt);
       }
     }
