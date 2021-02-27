@@ -3,9 +3,23 @@
 // Taggin elements
 
 document.getElementById("generate").addEventListener("click", function () {
+  let selTable = document.getElementById("seltable");
   let txtNumber = document.getElementById("txtnumber").value;
 
-  let number = Number(txtNumber);
+  if (txtNumber.length === 0) {
+    alert("Please type a number.");
+  } else {
+    let number = Number(txtNumber);
+    selTable.innerHTML = `Pick a number and click on Generate.`;
 
-  alert(number);
+    if (number === 0) {
+      alert("Please pick a number greater than 0.");
+    } else {
+      for (let i = 1; i <= 10; i++) {
+        let newOpt = document.createElement("option");
+        newOpt.text = `${number} x ${i} = ${number * i}`;
+        selTable.appendChild(newOpt);
+      }
+    }
+  }
 });
