@@ -3,24 +3,28 @@
 // Taggin elements
 
 document.getElementById("generate").addEventListener("click", function () {
-  let selTable = document.getElementById("seltable");
-  let txtNumber = document.getElementById("txtnumber").value;
+  let olEl = document.getElementById("olEl");
+  let txtNumber = document.getElementById("txtnumber");
 
-  if (txtNumber.length === 0) {
+  olEl.innerHTML = "";
+
+  if (txtNumber.value.length === 0) {
     alert("Please type a number.");
   } else {
-    let number = Number(txtNumber);
-    selTable.innerHTML = `Pick a number and click on Generate.`;
+    let number = Number(txtNumber.value);
 
     if (number === 0) {
       alert("Please pick a number greater than 0.");
     } else {
       for (let i = 1; i <= 10; i++) {
-        let newOpt = document.createElement("option");
-        newOpt.text = `${number} x ${i} = ${number * i}`;
-        newOpt.value = `mtab${i}`;
-        selTable.appendChild(newOpt);
+        const newLi = document.createElement("li");
+        newLi.appendChild(
+          document.createTextNode(`${number} x ${i} = ${number * i}`)
+        );
+        olEl.appendChild(newLi);
       }
     }
   }
+  txtNumber.value = "";
+  txtNumber.focus();
 });
