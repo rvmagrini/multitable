@@ -4,8 +4,20 @@ body {
 }
 
 section {
-  width: 60%;
+  width: 50%;
   margin: auto;
+}
+
+input {
+  border-radius: 10px;
+  padding: 5px;
+}
+
+ol {
+  width: 190px;
+  margin: auto;
+  border: 2px solid black;
+  border-radius: 16px;
 }
 
 select {
